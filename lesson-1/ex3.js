@@ -1,4 +1,5 @@
 /**
+ * Use ARROW Function
  * Write a function called calculateAge() which returns an array oj objects with new key (age).
  * The key 'age' equals the calculated years based on the birthYear and the current year. 
  * If the key 'birthYear' is null, the default value of 'age' is 18.
@@ -34,8 +35,20 @@ const students = [
 ]
 
 // CODE HERE
+const calculateAge = students => {
+    const currentYear = new Date().getFullYear();
 
+    const result = students.map(student => {
+        const { birthYear = 18, ...rest } = student;
+        const age = birthYear !== null ? currentYear - birthYear : birthYear;
+        return { ...rest, age };
+    });
 
+    return result;
+};
+
+const studentWithAge = calculateAge(students);
+console.log(studentWithAge)
 
 /**
  * Expect output: 

@@ -13,12 +13,9 @@ const person = {
     company: 'Space X'
 }
 // CODE FUNCTION HERE
-const displayFullName = (person) => {
-    
-
-    return `Fullname is ${first}${last}.`
+const displayFullName = ({first,last}) => {
+    console.log(`Fullname is ${first} ${last}.`) 
 };
 
-export {displayFullName};
-
+displayFullName(person)
 // Expect output: "Elon Musk"s
